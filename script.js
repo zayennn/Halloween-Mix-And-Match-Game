@@ -61,7 +61,7 @@ class MixOrMatch {
         return setInterval(() => {
             this.timeRemaining--;
             this.timer.innerText = this.timeRemaining;
-            if(this.timeRemaining === 0)
+            if (this.timeRemaining === 0)
                 this.gameOver();
         }, 1000);
     }
@@ -82,13 +82,13 @@ class MixOrMatch {
         });
     }
     flipCard(card) {
-        if(this.canFlipCard(card)) {
+        if (this.canFlipCard(card)) {
             this.audioController.flip();
             this.totalClicks++;
             this.ticker.innerText = this.totalClicks;
             card.classList.add('visible');
 
-            if(this.cardToCheck) {
+            if (this.cardToCheck) {
                 this.checkForCardMatch(card);
             } else {
                 this.cardToCheck = card;
@@ -96,9 +96,9 @@ class MixOrMatch {
         }
     }
     checkForCardMatch(card) {
-        if(this.getCardType(card) === this.getCardType(this.cardToCheck))
+        if (this.getCardType(card) === this.getCardType(this.cardToCheck))
             this.cardMatch(card, this.cardToCheck);
-        else 
+        else
             this.cardMismatch(card, this.cardToCheck);
 
         this.cardToCheck = null;
@@ -109,7 +109,7 @@ class MixOrMatch {
         card1.classList.add('matched');
         card2.classList.add('matched');
         this.audioController.match();
-        if(this.matchedCards.length === this.cardsArray.length)
+        if (this.matchedCards.length === this.cardsArray.length)
             this.victory();
     }
     cardMismatch(card1, card2) {
